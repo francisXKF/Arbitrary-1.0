@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Arbitrary_user',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -51,14 +52,20 @@ ROOT_URLCONF = 'Arbitrary.urls'
 
 WSGI_APPLICATION = 'Arbitrary.wsgi.application'
 
+TEMPLATE_DIRS = {
+    os.path.join(os.path.dirname(__file__), '../templates/'),
+}
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Arbitrary',
+        'USER': 'root', #must 'root' because the mysql user only is 'root'
+        'PASSWORD': 'xkf83551273',
+        'HOST':'',
     }
 }
 
@@ -79,4 +86,4 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/' #so the bootstrap_things must static

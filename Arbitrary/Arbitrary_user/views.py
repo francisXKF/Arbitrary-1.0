@@ -1,0 +1,8 @@
+#-*- codeing utf-8 -*-
+from django.shortcuts import render
+import time, datetime
+from django.http import HttpResponse
+
+def index(request):
+    return render(request, 'index.html', {})
+
